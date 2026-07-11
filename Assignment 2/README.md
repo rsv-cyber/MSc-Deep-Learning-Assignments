@@ -263,45 +263,6 @@ Instead of random uniform or Xavier/Glorot initializations, our pipeline utilize
 
 ---
 
-## Visual Results
-
-### Training Curves
-
-#### ResNet50 - Classifier on Original Data
-![ResNet50 Classifier Original](resnet50_classifier_original.png)
-*Figure 1: Training and validation accuracy/loss curves for ResNet50 classifier on original data.*
-
-#### ResNet50 - Last Conv Block on Original Data
-![ResNet50 Last Conv Original](resnet50_lastconv_original.png)
-*Figure 2: Training and validation accuracy/loss curves for ResNet50 last conv block on original data.*
-
-#### ResNet50 - Classifier on Augmented Data
-![ResNet50 Classifier Augmented](resnet50_classifier_augmented.png)
-*Figure 3: Training and validation accuracy/loss curves for ResNet50 classifier on augmented data.*
-
-#### ResNet50 - Last Conv Block on Augmented Data
-![ResNet50 Last Conv Augmented](resnet50_lastconv_augmented.png)
-*Figure 4: Training and validation accuracy/loss curves for ResNet50 last conv block on augmented data.*
-
----
-
-## Comparison with Source Literature
-
-| Model Configuration | Data Setup | Paper Test Acc | Our Test Acc |
-| :--- | :--- | :---: | :---: |
-| VGG16 Fine-tuned | Original | 80% | *Failed* |
-| VGG16 Fine-tuned | Augmented | 88% | *Failed* |
-| ResNet50 Fine-tuned | Original | 82% | **95% (Classifier) / 98% (Last Conv)** |
-| ResNet50 Fine-tuned | Augmented | 90% | **96% (Classifier) / 98% (Last Conv)** |
-
-### Discrepancy Analysis
-Our ResNet50 implementation markedly outperformed the target baseline paper. This performance leap is attributed to:
-1. **Framework Differences:** Core optimization differences between PyTorch (our setup) and Keras (paper setup).
-2. **Fine-Tuning Depth:** Targeted adaptation via unfreezing the final convolutional block rather than relying strictly on the linear head.
-3. **Data Pipelines:** Variations in validation splits and specific geometric transformations.
-
----
-
 ## Key Takeaways
 
 1. **Augmentation Works:** Geometric and color augmentations smooth out optimization variances and consistently protect against overfitting.
