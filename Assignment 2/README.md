@@ -25,8 +25,6 @@ The dataset used is the **Cats vs Dogs dataset** from Kaggle, containing images 
 | Normalization | ImageNet mean/std: [0.485, 0.456, 0.406] / [0.229, 0.224, 0.225] |
 | Split ratio | 70% training, 30% validation |
 
-The dataset is a subset of the Kaggle CAT vs DOG database, balanced with equal samples per class.
-
 ---
 
 ## Paper Reference
